@@ -1,5 +1,6 @@
 <template>
   <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+  <button @click="exportChartAsPDF">Export as PDF</button>
 </template>
   
 <script setup>
@@ -14,6 +15,8 @@ import {
   CategoryScale,
   LinearScale,
 } from "chart.js";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 // Register the components you need from Chart.js
 ChartJS.register(
@@ -78,5 +81,19 @@ function updateChart(data) {
   // Convert aggregated data to chart format
   chartData.value.labels.push(...Object.keys(sectionCounts));
   chartData.value.datasets[0].data = Object.values(sectionCounts);
+}
+
+// Function to export the chart as a PDF
+async function exportChartAsPDF() {
+  const chartElement = document.getElementById("my-chart-id");
+  const canvas = await html2canvas(chartElement); // Capture chart as canvas
+  const imgData = canvas.toDataURL("image/png"); // Convert canvas to image
+
+  const pdf = new jsPDF();
+  const imgWidth = 190; // Adjust to fit PDF size
+  const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
+
+  pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight); // Add image to PDF
+  pdf.save("chart.pdf"); // Save PDF
 }
 </script>

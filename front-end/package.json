@@ -18,6 +18,8 @@
     "chartjs-plugin-annotation": "^3.0.1",
     "chartjs-plugin-zoom": "^2.0.1",
     "file": "^0.2.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
     "path": "^0.12.7",
     "postcss": "^8.4.24",
     "system": "^2.0.1",

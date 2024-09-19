@@ -26,7 +26,7 @@
     <h2 class="text-2xl font-bold mb-4">Sections and Geological Classes</h2>
 
     <div class="overflow-x-auto">
-      <table class="min-w-full bg-white border border-gray-200">
+      <table class="min-w-full bg-white border border-gray-200 text-black">
         <thead class="bg-gray-100">
           <tr>
             <th
