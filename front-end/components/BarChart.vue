@@ -1,6 +1,25 @@
 <template>
-  <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
-  <button @click="exportChartAsPDF">Export as PDF</button>
+  <div class="container mx-auto px-4 py-8">
+    <!-- Chart Section -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">
+        Chart Data
+      </h2>
+      <div class="relative">
+        <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+      </div>
+    </div>
+
+    <!-- Export Button -->
+    <div class="flex justify-end mt-6">
+      <button
+        @click="exportChartAsPDF"
+        class="px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg shadow hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-300"
+      >
+        Export as PDF
+      </button>
+    </div>
+  </div>
 </template>
   
 <script setup>
